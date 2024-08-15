@@ -1,9 +1,11 @@
-# Padroes de projetos - kataLogoLivros
+# Refatoração classe Book - kataLogoLivros
 
 <em>[TODO.md spec & Este é o project](https://bit.ly/3fCwKfM)</em>
 
 ### Todo
 
+- Comparação e HashCode: O método compareTo e hashCode estão baseados apenas no catalogCode.  
+- StringBuilder: em vez de String.format para melhorar a performance na construção de strings.  
 - A classe Book expõe muitos métodos set e get. Considere usar o padrão de projeto Builde para criar instâncias de Book  
 - > [Book]: Builder Pattern:  Use o padrão Builder para criar instâncias de Book  
 - > [Reader]: Sugestões de Melhoria em Relação a Design Patterns; StringBuilder: em vez de String.format para melhorar a performance na construção de strings.  

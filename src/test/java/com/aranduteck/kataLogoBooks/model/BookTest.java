@@ -18,7 +18,7 @@ public class BookTest {
     private String title;
     private String author;
 
-    private Reader people;
+    private Reader reader;
     private String name = "Heloísa";
 
     private Library lib;
@@ -33,7 +33,7 @@ public class BookTest {
         book1 = new Book(title, author);
         book2 = new Book("Dom Casmurro", author);
 
-        people = new Reader(name);
+        reader = new Reader(name);
 
         lib = new Library("Dedalus");
 
@@ -60,17 +60,17 @@ public class BookTest {
     }
 
     @Test//assign
-    public void testAssignPeopleToBook(){
+    public void testAssignReader(){
 //assign
-        book1.assignBookToPeople(people);
+        book1.assignToReader(reader);
 
-        assertEquals(book1.getBorrowTo(), people);        
+        assertEquals(book1.getBorrowTo(), reader);        
     }
 
      @Test
-    public void testUnassignPeopleFromBook(){
+    public void testUnassignFromReader(){
 
-        book1.unassignPeopleFromBook();
+        book1.unassignFromReader();
 
         assertEquals(null, book1.getBorrowTo());        
     }
@@ -130,14 +130,17 @@ public class BookTest {
     @Test
     public void ShowBookInformation_test(){
 
+        final String BOOK_INFO_FORMAT = """
+            Título: %s;
+            Autor: %s;
+            Número de catálogo: %s;
+            Já emprestado para: %s
+            """;
+
         String expectedInfo = book1.showBookInformation();
-        //String catalogNumber = book.generateCatalogNumber();
-        String information = String.format("""
-                Título: %s;
-                Autor: %s;
-                Número de catálogo: %s;
-                Já emprestado para: %s
-                """,
+        
+        String information = String.format(
+                BOOK_INFO_FORMAT,
                 book1.getTitle(),
                 book1.getAuthor(),
                 book1.getCatalogCode(),
@@ -152,7 +155,12 @@ public class BookTest {
 
         String real = book1.toString();
 
-        String expected = "\"Título: " + "Helena" + " Autor: " + "Machado de Assis" + "\"";
+        final String TO_STRING_FORMAT = "\"Título: %s Autor: %s\"";
+
+        String expected = String.format(
+            TO_STRING_FORMAT,
+            book1.getTitle(),
+            book2.getAuthor());
 
         assertEquals(expected, real);
     }
