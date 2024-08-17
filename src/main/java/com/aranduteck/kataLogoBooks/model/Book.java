@@ -2,12 +2,7 @@ package com.aranduteck.kataLogoBooks.model;
 
 public class Book implements Comparable<Book> {
 
-    private static final String BOOK_INFO_FORMAT = """
-            Título: %s;
-            Autor: %s;
-            Número de catálogo: %s;
-            Já emprestado para: %s
-            """;
+   
     private static final String TO_STRING_FORMAT = "\"Título: %s Autor: %s\"";
 
     private String title;
@@ -79,15 +74,6 @@ public class Book implements Comparable<Book> {
         this.borrowTo = null;    
     }
 
-    public String showBookInformation() {
-       
-        return  String.format( 
-                BOOK_INFO_FORMAT,
-                getTitle(),
-                getAuthor(),
-                getCatalogCode(),
-                getBorrowTo());
-    }
 
     @Override
     public String toString(){

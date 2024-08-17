@@ -1,8 +1,11 @@
-# Padroes de projetos - kataLogoLivros
+# Padroes de Arquitetura - MVC - kataLogoLivros
 
 <em>[TODO.md spec & Este é o project](https://bit.ly/3fCwKfM)</em>
 
 ### Todo
+
+- -> view
+
 
 - A classe Book expõe muitos métodos set e get. Considere usar o padrão de projeto Builde para criar instâncias de Book  
 - > [Book]: Builder Pattern:  Use o padrão Builder para criar instâncias de Book  
