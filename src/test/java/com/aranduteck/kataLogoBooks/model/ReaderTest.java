@@ -21,9 +21,9 @@ public class ReaderTest {
     private Reader reader1;
     private Reader reader2;
     private String name;
-    private LinkedList<Book> bookList;
-    private Book book1; 
-    private Book book2; 
+    private LinkedList<BookDto> bookList;
+    private BookDto book1; 
+    private BookDto book2; 
 
     @BeforeEach
     public void setUp() throws NameNullException{
@@ -33,8 +33,8 @@ public class ReaderTest {
         reader1 = new Reader(name);
         reader2 = new Reader("Jurandir");
 
-        book1 = new Book("República", "Platão");
-        book2 = new Book("Ética", "Aristóteles");
+        book1 = new BookDto("República", "Platão");
+        book2 = new BookDto("Ética", "Aristóteles");
     }
 
     @Test
@@ -148,7 +148,7 @@ public class ReaderTest {
         reader1.assignBook(book1);
         reader1.assignBook(book2);
 
-         List<Book> bookList = reader1.getBooks();
+         List<BookDto> bookList = reader1.getBooks();
 
         assertNotNull(bookList);
         assertEquals(2, bookList.size());
@@ -172,8 +172,8 @@ public class ReaderTest {
     @Test
     public void displaysHistoryOfBookLoans_Test() throws BookNullException {
 
-        Book book2 = new Book("República", "Platão");
-        Book book3= new Book("República", "Platão");
+        BookDto book2 = new BookDto("República", "Platão");
+        BookDto book3= new BookDto("República", "Platão");
 
         reader1.assignBook(book1);
         reader1.assignBook(book2);

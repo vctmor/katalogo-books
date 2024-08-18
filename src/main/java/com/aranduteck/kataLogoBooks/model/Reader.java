@@ -24,12 +24,12 @@ import com.aranduteck.kataLogoBooks.exceptions.NameNullException;
 public class Reader implements Comparable<Reader> {
 
     private String name;
-    private LinkedList<Book> bookList;
+    private LinkedList<BookDto> bookList;
     
     public Reader(String name ) throws NameNullException{
 
         setName(name);
-        bookList = new LinkedList<Book>();
+        bookList = new LinkedList<BookDto>();
     }
 
     public void setName(String name) throws NameNullException{
@@ -45,14 +45,14 @@ public class Reader implements Comparable<Reader> {
         return name;
     }    
 
-    public void assignBook(Book book) throws BookNullException{
+    public void assignBook(BookDto book) throws BookNullException{
 
         if ( book == null  )
             throw new BookNullException("O objeto book não pode ser nulo.");         
         bookList.add(book);
     }
 
-  public void unassignBook(Book book) throws BookNullException {
+  public void unassignBook(BookDto book) throws BookNullException {
 
         if ( book == null  )
             throw new BookNullException("O objeto book não pode ser nulo.");         
@@ -61,7 +61,7 @@ public class Reader implements Comparable<Reader> {
             bookList.remove(book);
     }
 
-    public List<Book> getBooks(){
+    public List<BookDto> getBooks(){
 
        return Collections.unmodifiableList(bookList);
     }

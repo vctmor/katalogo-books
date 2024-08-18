@@ -20,11 +20,11 @@ public class LibraryTest {
     private Library lib;
     private String libName;
     private int numberUnic;
-    private TreeSet<Book> repositoryLBooks;
+    private TreeSet<BookDto> repositoryLBooks;
     private HashSet<Reader> people;
 
-    private Book book1;
-    private Book book2;
+    private BookDto book1;
+    private BookDto book2;
 
 
     @BeforeEach
@@ -34,8 +34,8 @@ public class LibraryTest {
         libName ="Olorum";
         lib = new Library(libName);
 
-        book1 = new Book("Helena", "Machado");
-        book2 = new Book("Medalhão", "Machado");
+        book1 = new BookDto("Helena", "Machado");
+        book2 = new BookDto("Medalhão", "Machado");
         repositoryLBooks = new TreeSet<>();
         repositoryLBooks.add(book1);
         repositoryLBooks.add(book2);
@@ -48,7 +48,7 @@ public class LibraryTest {
         assertEquals(libName, lib.getName());
 
         assertNotNull(lib.listOfBooksAvaliable());
-        assertTrue(lib.listOfBooksAvaliable() instanceof Set<Book>);
+        assertTrue(lib.listOfBooksAvaliable() instanceof Set<BookDto>);
 
         assertNotNull(lib.listOfPeople());
         assertTrue(lib.listOfPeople() instanceof HashSet);
@@ -88,10 +88,10 @@ public class LibraryTest {
 
      @Test
     public void testListOfBooksAvaliable() {
-        Set<Book> books = lib.listOfBooksAvaliable();
+        Set<BookDto> books = lib.listOfBooksAvaliable();
         
         // Verifica se o conjunto retornado é imutável
-        assertThrows(UnsupportedOperationException.class, () -> books.add(new Book("Medalhão", "Machado")));
+        assertThrows(UnsupportedOperationException.class, () -> books.add(new BookDto("Medalhão", "Machado")));
         
         // Verifica se o conjunto contém os livros esperados
         // assertTrue(books.containsAll(repositoryLBooks));

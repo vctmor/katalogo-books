@@ -1,9 +1,10 @@
 package com.aranduteck.kataLogoBooks.view;
 
-import com.aranduteck.kataLogoBooks.model.Book;
-import com.aranduteck.kataLogoBooks.model.Reader;
+import com.aranduteck.kataLogoBooks.model.dto.BookDto;
 
 public class BookView {
+
+    private BookDto model;
 
      private static final String BOOK_INFO_FORMAT = """
             Título: %s;
@@ -12,8 +13,9 @@ public class BookView {
             Já emprestado para: %s
             """;
 
-    public BookView(Book modelMock) {
-		//TODO Auto-generated constructor stub
+    public BookView(BookDto bookDto) {
+		
+       this.model =  bookDto;
 	}
 
 	public String showBookInformation() {
@@ -24,10 +26,10 @@ public class BookView {
 
     String result =  String.format( 
                 BOOK_INFO_FORMAT,
-                title,
-                author,
-                catalogCode,
-                borrowTo);
+                model.title(),
+                model.author(),
+                model.catalogCode(),
+                model.borrowTo());
 System.out.println("Result: " + result);
         return result;
     }

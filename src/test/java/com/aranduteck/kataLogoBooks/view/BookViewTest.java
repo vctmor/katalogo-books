@@ -11,16 +11,20 @@ import org.junit.jupiter.api.Test;
 
 import com.aranduteck.kataLogoBooks.controller.BookController;
 import com.aranduteck.kataLogoBooks.model.Book;
+import com.aranduteck.kataLogoBooks.model.dto.BookDto;
+import com.aranduteck.kataLogoBooks.model.Reader;
 import com.aranduteck.kataLogoBooks.view.BookView;
 
 public class BookViewTest {
 
     private BookView view;
     private Book modelMock;
-    private BookController controller;
+    private BookDto bookDto;
 
     private String author = "Machado";
     private String title = "Capitu";
+    private String catalogCode = "1";
+    private Reader borrowTo = null;
 
     @BeforeEach
     public void setUp(){
@@ -30,29 +34,16 @@ public class BookViewTest {
 
         when(modelMock.getAuthor()).thenReturn(author);
         when(modelMock.getTitle()).thenReturn(title);
-        when(modelMock.getCatalogCode()).thenReturn("1");
-        when(modelMock.getBorrowTo()).thenReturn(null);
+        when(modelMock.getCatalogCode()).thenReturn(catalogCode);
+        when(modelMock.getBorrowTo()).thenReturn(borrowTo);
 
-    }
-
-    @Test
-    public void BookViewTest(){
-
-        // Act
-        BookView view = new BookView(modelMock);
-
-        // Assert
-        
-        assertEquals()
+        bookDto = new BookDto(modelMock);
     }
 
      @Test
     public void ShowBookInformation_test(){
 
-        // Por que com mock o esperado fica null?
-    //   view = mock(BookView.class);
-
-       view = new BookView(modelMock);
+      BookView view = new BookView(bookDto);
     
         final String BOOK_INFO_FORMAT = """
             Título: %s;
@@ -73,6 +64,8 @@ public class BookViewTest {
         assertEquals(expectedInfo,information);
         
     }
+
+    
 
 
 }

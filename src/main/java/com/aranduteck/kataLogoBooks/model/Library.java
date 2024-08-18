@@ -15,7 +15,7 @@ public class Library {
 
     private String libName;
     private int unicNumber;
-    private TreeSet<Book> collection;
+    private TreeSet<BookDto> collection;
     private HashSet<Reader> people;
     
     public Library(String libName){
@@ -30,7 +30,7 @@ public class Library {
         return libName;
     }
 
-    public Set<Book> listOfBooksAvaliable(){
+    public Set<BookDto> listOfBooksAvaliable(){
 
         return Collections.unmodifiableSet(collection);
     } 
@@ -55,7 +55,7 @@ public class Library {
         return unicNumber += 1; 
     }
 
-    public void addBook(Book book) throws BookNullException {
+    public void addBook(BookDto book) throws BookNullException {
 
         if (book == null)
             throw new BookNullException("O objeto book não pode ser nulo.");

@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
 //@ExtendWith(StringParameterResolver.class)
 public class BookTest {
 
-    private Book book1;    
-    private Book book2;    
+    private BookDto book1;    
+    private BookDto book2;    
 
     private String title;
     private String author;
@@ -30,8 +30,8 @@ public class BookTest {
         this.title = "Helena";
         this.author = "Machado de Assis";
 
-        book1 = new Book(title, author);
-        book2 = new Book("Dom Casmurro", author);
+        book1 = new BookDto(title, author);
+        book2 = new BookDto("Dom Casmurro", author);
 
         reader = new Reader(name);
 
@@ -92,7 +92,7 @@ public class BookTest {
     @Test
      public void hashCode_test(){
 
-        Book book3 = new Book("Helena", author);
+        BookDto book3 = new BookDto("Helena", author);
         book3.setCatalogCode(lib.generatesUniqueCode());
 
         book1.setCatalogCode(code1);
@@ -108,7 +108,7 @@ public class BookTest {
 
         book1.setCatalogCode(lib.generatesUniqueCode());
 
-        Book book3 = new Book("Helena", author);
+        BookDto book3 = new BookDto("Helena", author);
         book3.setCatalogCode(lib.generatesUniqueCode());
 
         assertEquals(1, book1.compareTo(book1));
