@@ -1,19 +1,15 @@
 package com.aranduteck.kataLogoBooks.view;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.aranduteck.kataLogoBooks.controller.BookController;
 import com.aranduteck.kataLogoBooks.model.Book;
 import com.aranduteck.kataLogoBooks.model.dto.BookDto;
 import com.aranduteck.kataLogoBooks.model.Reader;
-import com.aranduteck.kataLogoBooks.view.BookView;
 
 public class BookViewTest {
 
@@ -61,11 +57,25 @@ public class BookViewTest {
 
         String expectedInfo = view.showBookInformation();
         
-        assertEquals(expectedInfo,information);
-        
+        assertEquals(expectedInfo,information);        
     }
 
-    
+    @Test
+    public void toStringTest(){
+
+         BookView view = new BookView(bookDto);
+
+        final String TO_STRING_FORMAT = "\"Título: %s Autor: %s\"";
+
+        String expected = String.format(
+            TO_STRING_FORMAT , 
+            modelMock.getTitle(), 
+            modelMock.getAuthor());
+
+        String actual = view.toString();
+
+        assertEquals(expected, actual);
+    }
 
 
 }

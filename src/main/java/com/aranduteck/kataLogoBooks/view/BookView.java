@@ -4,6 +4,8 @@ import com.aranduteck.kataLogoBooks.model.dto.BookDto;
 
 public class BookView {
 
+    private static final String TO_STRING_FORMAT = "\"Título: %s Autor: %s\"";
+
     private BookDto model;
 
      private static final String BOOK_INFO_FORMAT = """
@@ -33,6 +35,13 @@ public class BookView {
 System.out.println("Result: " + result);
         return result;
     }
-
       
+    @Override
+    public String toString(){
+
+        return String.format(
+            TO_STRING_FORMAT , 
+            model.title(), 
+            model.author());
+    }
 }
