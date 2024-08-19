@@ -56,20 +56,15 @@ public class Book implements Comparable<Book> {
         this.author = author;    
     }
 
-    public void assignToReader(Reader people) {
-        
-        this.borrowTo = people;    
+     public void setBorrowTo(Reader reader) {
+     
+        this.borrowTo = reader;
     }
-
-    public Reader getBorrowTo() {
+      public Reader getBorrowTo() {
 
         return borrowTo;
     }
 
-    public void unassignFromReader() {
-     
-        this.borrowTo = null;    
-    }
 
 
 }

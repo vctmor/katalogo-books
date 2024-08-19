@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
 //@ExtendWith(StringParameterResolver.class)
 public class BookTest {
 
-    private BookDto book1;    
-    private BookDto book2;    
+    private Book book1;    
+    private Book book2;    
 
     private String title;
     private String author;
@@ -30,8 +30,8 @@ public class BookTest {
         this.title = "Helena";
         this.author = "Machado de Assis";
 
-        book1 = new BookDto(title, author);
-        book2 = new BookDto("Dom Casmurro", author);
+        book1 = new Book(title, author);
+        book2 = new Book("Dom Casmurro", author);
 
         reader = new Reader(name);
 
@@ -57,6 +57,14 @@ public class BookTest {
     public void testCreateBook_pt3_borrowToNull(){
 
         assertEquals(null, book1.getBorrowTo());
+    }
+
+      @Test//assign
+    public void testsetBorrowTo(){
+        //assign
+        book1.assignToReader(reader);
+
+        assertEquals(book1.getBorrowTo(), reader);        
     }
 
     @Test//assign
@@ -86,17 +94,17 @@ public class BookTest {
 
     book1.setCatalogCode(code1);
 
-    assertEquals("LIB202408140001", book1.getCatalogCode());
+    assertEquals("LIB202408180001", book1.getCatalogCode());
     }
 
     @Test
      public void hashCode_test(){
 
-        BookDto book3 = new BookDto("Helena", author);
+        Book book3 = new Book("Helena", author);
         book3.setCatalogCode(lib.generatesUniqueCode());
 
         book1.setCatalogCode(code1);
-        assertEquals("LIB202408140001", book1.getCatalogCode());
+        assertEquals("LIB202408180001", book1.getCatalogCode());
 
         assertEquals(book1.hashCode(), book1.hashCode());
         assertNotEquals(book1.hashCode(), book3.hashCode());
@@ -108,7 +116,7 @@ public class BookTest {
 
         book1.setCatalogCode(lib.generatesUniqueCode());
 
-        BookDto book3 = new BookDto("Helena", author);
+        Book book3 = new Book("Helena", author);
         book3.setCatalogCode(lib.generatesUniqueCode());
 
         assertEquals(1, book1.compareTo(book1));
