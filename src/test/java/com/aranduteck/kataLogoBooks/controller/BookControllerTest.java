@@ -31,10 +31,21 @@ public class BookControllerTest {
         controller = new BookController(model, view);
     }
 
+
+    @Test
+    public void setBorowTest(){
+
+        readerMock = mock(Reader.class);
+        controller.setBorrowTo(readerMock);
+        
+       assertEquals(readerMock, controller.getBorrowTo());
+    }
+
+
     @Test
     public void getBorowTest(){
 
-       assertEquals(controller.getBorrowTo(), null);
+       assertEquals(null, controller.getBorrowTo());
     }
 
     @Test
@@ -58,4 +69,18 @@ public class BookControllerTest {
 
         assertNull(controller.getBorrowTo());        
     }
+
+    @Test
+    public void set_getCatalogCodeTest(){
+
+        String code = "123";
+
+        controller.setCatalogCode(code);
+
+        String get = controller.getCatalogCode();
+
+        assertEquals(code, get);
+    }
+
+
 }

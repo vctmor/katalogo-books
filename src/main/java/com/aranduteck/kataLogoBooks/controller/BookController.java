@@ -28,13 +28,21 @@ public class BookController {
 	
     model.setBorrowTo(null);    
         
+    }    
+
+    public void setCatalogCode(String code){
+
+        model.setCatalogCode(code);
     }
 
+    public String getCatalogCode(){
 
-   
+        return model.getCatalogCode();
+    }
 
-    
-
-    
+    public void setBorrowTo(Reader reader) {
+        
+        model.setBorrowTo(reader);;
+    }
 
 }
