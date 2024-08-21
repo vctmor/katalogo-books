@@ -1,4 +1,4 @@
-package com.aranduteck.kataLogoBooks.controller;
+package com.aranduteck.kataLogoBooks.service;
 
 import com.aranduteck.kataLogoBooks.model.Book;
 import com.aranduteck.kataLogoBooks.model.Reader;

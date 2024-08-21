@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import com.aranduteck.kataLogoBooks.model.Book;
 import com.aranduteck.kataLogoBooks.model.Reader;
+import com.aranduteck.kataLogoBooks.service.BookService;
 import com.aranduteck.kataLogoBooks.view.BookView;
 
 public class BookServiceTest {
