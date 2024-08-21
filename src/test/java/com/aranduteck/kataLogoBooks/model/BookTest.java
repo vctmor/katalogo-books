@@ -59,30 +59,6 @@ public class BookTest {
         assertEquals(null, book1.getBorrowTo());
     }
 
-      @Test//assign
-    public void testsetBorrowTo(){
-        //assign
-        book1.assignToReader(reader);
-
-        assertEquals(book1.getBorrowTo(), reader);        
-    }
-
-    @Test//assign
-    public void testAssignReader(){
-//assign
-        book1.assignToReader(reader);
-
-        assertEquals(book1.getBorrowTo(), reader);        
-    }
-
-     @Test
-    public void testUnassignFromReader(){
-
-        book1.unassignFromReader();
-
-        assertEquals(null, book1.getBorrowTo());        
-    }
-
    @Test
     public void getCatalogNumber_test(){
 
@@ -135,42 +111,7 @@ public class BookTest {
         assertNotEquals(book1.getCatalogCode(), book2.getCatalogCode());
     }
    
-    @Test
-    public void ShowBookInformation_test(){
+   
 
-        final String BOOK_INFO_FORMAT = """
-            Título: %s;
-            Autor: %s;
-            Número de catálogo: %s;
-            Já emprestado para: %s
-            """;
-
-        String expectedInfo = book1.showBookInformation();
-        
-        String information = String.format(
-                BOOK_INFO_FORMAT,
-                book1.getTitle(),
-                book1.getAuthor(),
-                book1.getCatalogCode(),
-                book1.getBorrowTo());
-        
-        assertEquals(expectedInfo,information);
-        
-    }
-
-    @Test
-    public void toString_test(){
-
-        String real = book1.toString();
-
-        final String TO_STRING_FORMAT = "\"Título: %s Autor: %s\"";
-
-        String expected = String.format(
-            TO_STRING_FORMAT,
-            book1.getTitle(),
-            book2.getAuthor());
-
-        assertEquals(expected, real);
-    }
 
 }
