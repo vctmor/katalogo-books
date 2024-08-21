@@ -11,12 +11,12 @@ import com.aranduteck.kataLogoBooks.model.Book;
 import com.aranduteck.kataLogoBooks.model.Reader;
 import com.aranduteck.kataLogoBooks.view.BookView;
 
-public class BookControllerTest {
+public class BookServiceTest {
 
     // private BookDto bdto;
     private Book model;
     private BookView view;
-    private BookController controller;
+    private BookService controller;
     private Reader readerMock;
 
     private String author = "Machado";
@@ -26,9 +26,8 @@ public class BookControllerTest {
     public void setUp(){
  
         model = new Book(title, author);
-        view = mock(BookView.class);
-
-        controller = new BookController(model, view);
+        
+        controller = new BookService(model);
     }
 
 
