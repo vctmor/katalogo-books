@@ -5,8 +5,7 @@ import com.aranduteck.kataLogoBooks.model.Reader;
 
 public class BookService {
 
-    private Book model;
-   
+    private Book model;   
 
     public BookService(Book model){
 
@@ -39,9 +38,5 @@ public class BookService {
         return model.getCatalogCode();
     }
 
-    public void setBorrowTo(Reader reader) {
-        
-        model.setBorrowTo(reader);;
-    }
 
 }

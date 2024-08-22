@@ -1,5 +1,7 @@
 package com.aranduteck.kataLogoBooks.controller;
 
+import org.springframework.beans.propertyeditors.StringArrayPropertyEditor;
+
 import com.aranduteck.kataLogoBooks.model.Reader;
 import com.aranduteck.kataLogoBooks.service.BookService;
 import com.aranduteck.kataLogoBooks.view.BookView;
@@ -18,6 +20,23 @@ public class BookController {
     public Reader getBorowTo(){
 
         return service.getBorrowTo();
+    }
+
+    public void assignToReader(){
+
+        service.assignToReader(getBorowTo());
+    }
+
+    public void setCatalogCode(String code) {
+    
+        service.setCatalogCode(code);
+    
+    }
+
+    public String getCatalogCode() {
+        
+        return service.getCatalogCode();
+    
     }
     
 }
