@@ -32,6 +32,7 @@ public class BookView {
                 model.author(),
                 model.catalogCode(),
                 model.borrowTo());
+                
 System.out.println("Result: " + result);
         return result;
     }

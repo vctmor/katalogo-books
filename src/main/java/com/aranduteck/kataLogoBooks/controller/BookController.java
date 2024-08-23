@@ -38,5 +38,13 @@ public class BookController {
         return service.getCatalogCode();
     
     }
+
+    public String  showBookInformation() {
+        
+       return view.showBookInformation();
+    }
+
+    // toString() já existe por padrão
+
     
 }

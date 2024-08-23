@@ -1,4 +1,4 @@
-package com.aranduteck.kataLogoBooks.controller;
+package com.aranduteck.kataLogoBooks.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

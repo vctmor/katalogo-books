@@ -3,7 +3,6 @@ package com.aranduteck.kataLogoBooks.controller;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -21,12 +20,15 @@ public class BookControllerTest {
 
     @Mock
     private BookController controller;
-
+    @Mock
     private Book model;
-   
+   @Mock
     private BookService service;
+     @Mock
     private BookView view;
+    @Mock
     private BookDto dto;
+     @Mock
     private Reader reader;
 
     private String author = "Machado";
@@ -37,16 +39,16 @@ public class BookControllerTest {
 
         MockitoAnnotations.openMocks(this);
         
-        // view = new BookView(dto);
-        view = mock(BookView.class);
-        // model = new Book(title, author);
-        model = mock(Book.class);
-        // service = new BookService(model);
-        service = mock(BookService.class);
+        // // view = new BookView(dto);
+        // view = mock(BookView.class);
+        // // model = new Book(title, author);
+        // model = mock(Book.class);
+        // // service = new BookService(model);
+        // service = mock(BookService.class);
 
-        // controller = new BookController(service, view);
+        // // controller = new BookController(service, view);
 
-        reader = mock(Reader.class);
+        // reader = mock(Reader.class);
  
     }
 
@@ -96,7 +98,51 @@ public class BookControllerTest {
     }
 
 
+    @Test
+    public void showBookInformationTest(){
 
-    
+        final String BOOK_INFO_FORMAT = """
+            Título: %s;
+            Autor: %s;
+            Número de catálogo: %s;
+            Já emprestado para: %s
+            """;
+
+        when(model.getTitle()).thenReturn(title);
+        when(model.getAuthor()).thenReturn(author);
+        when(model.getCatalogCode()).thenReturn("123");
+        when(model.getBorrowTo()).thenReturn(reader);     
+
+        String result =  String.format( 
+        BOOK_INFO_FORMAT,
+        title,
+        author,
+        "123",
+        reader);
+
+        when(controller.showBookInformation()).thenReturn(result);
+
+
+        assertEquals(result, controller.showBookInformation());
+    }
+
+    @Test
+    public void toStringTest(){
+
+        final String TO_STRING_FORMAT = "\"Título: %s Autor: %s\"";
+
+        when(model.getTitle()).thenReturn(title);
+        when(model.getAuthor()).thenReturn(author);
+
+        String result = String.format(
+            TO_STRING_FORMAT , 
+            title, 
+            author);
+        
+        when(controller.toString()).thenReturn(result);
+
+        assertEquals(result, controller.toString());
+
+    }
 
 }
